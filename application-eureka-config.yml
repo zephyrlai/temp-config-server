@@ -1,0 +1,36 @@
+# 配置 dev 环境 
+spring:
+  profiles: dev 
+  application:
+    name: eurekaServer-config:
+server:
+  port: 7011
+
+eureka:
+  client:
+    register-with-eureka: true # 是否注册自己的信息到EurekaServer，默认是true
+    fetch-registry: false # 是否拉取其它服务的信息，默认是true
+    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
+      defaultZone: http://127.0.0.1:7011/eureka
+  instance:
+    prefer-ip-address: true # 当其它服务获取地址时提供ip而不是hostname
+    ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
+
+---
+# 配置 test 环境 
+spring:
+  profiles: test 
+  application:
+    name: eurekaServer-config:
+server:
+  port: 7021
+
+eureka:
+  client:
+    register-with-eureka: true # 是否注册自己的信息到EurekaServer，默认是true
+    fetch-registry: false # 是否拉取其它服务的信息，默认是true
+    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
+      defaultZone: http://127.0.0.1:7021/eureka
+  instance:
+    prefer-ip-address: true # 当其它服务获取地址时提供ip而不是hostname
+    ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找

@@ -5,12 +5,12 @@ spring:
 # 开发环境 
 spring:
   application:
-    name: my-config-dev
+    name: config-server-dev
     profiles: dev 
 
 ---
 # 测试环境 
 spring:
   application:
-    name: my-config-test
+    name: config-server-test
     profiles: test
